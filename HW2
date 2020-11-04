@@ -1,0 +1,18 @@
+c=1
+for ((i=2; i<=5; i+=1)); do
+	echo $i
+	for ((j=1; j<=$c; j++)); do
+		echo ${i}
+	done
+	echo
+	let c+=1
+done
+
+c=1
+for n in {a..d}; do
+	for ((s=1; s<=$c; s+=1)); do
+	echo ${n}
+	done
+	echo
+	let c+=1
+done

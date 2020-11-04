@@ -1,0 +1,12 @@
+for i in A_B-C_D 1_2-3_4 aa_bb-cc_dd; do 
+ echo ${i%%_*}
+ hold=${i#*_}
+ echo ${hold%-*}
+ yay=${i#*_}
+ echo ${yay%_*}
+ woo=${i##*_}
+ echo $woo
+ hoo=${i%-*}
+ echo foo-${hoo}
+ echo
+done

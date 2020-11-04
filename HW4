@@ -1,0 +1,28 @@
+c1=(`cat array_list.txt | awk '{print $1}'`)
+c2=(`cat array_list.txt | awk '{print $2}'`)
+c3=(`cat array_list.txt | awk '{print $3}'`)
+c4=(`cat array_list.txt | awk '{print $4}'`)
+
+ls=({0..5})
+
+for i in ${ls[@]}; do
+	echo "${c2[$i]}_${c3[$i]}-${c4[$i]}"
+done
+
+arr_length=${!c1[@]}
+
+for i in $arr_length; do
+	if (( $i < 3 )); then
+		echo -e "${!c1[$i]} \t ${c1[$i]}_${c2[$i]}"
+	elif (( $i >= 3 )); then
+		echo -e "${!c1[$i]} \t ${c3[$i]}-${c4[$i]}"
+	fi
+done
+
+for i in $arr_length; do
+	if (( $i < 3 )); then
+		echo -e "$i \t ${c1[$i]}_${c2[$i]}"
+	elif (( $i >= 3 )); then
+		echo -e "$i \t ${c3[$i]}-${c4[$i]}"
+	fi
+done
